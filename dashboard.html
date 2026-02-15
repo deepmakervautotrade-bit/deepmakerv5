@@ -30,30 +30,23 @@
     <div id="dashboard-container" class="loading">Memuat dashboard...</div>
 
     <script>
-        // Ambil parameter license dari URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const license = urlParams.get('license');
-        if (!license) {
-            document.getElementById('dashboard-container').innerHTML = '<div class="error">Kode lisensi tidak ditemukan. Silakan login kembali.</div>';
-        } else {
-
-fetch(`/dashboard?license=${encodeURIComponent(license)}`)
-  .then(response => response.text())
-  .then(html => {
-    document.getElementById('dashboard-container').innerHTML = html;
-  })
-  .catch(error => {
-    document.getElementById('dashboard-container').innerHTML = `<div class="error">Gagal memuat dashboard: ${error.message}</div>`;
-  });
-            
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('dashboard-container').innerHTML = html;
-                })
-                .catch(error => {
-                    document.getElementById('dashboard-container').innerHTML = `<div class="error">Gagal memuat dashboard: ${error.message}</div>`;
-                });
-        }
+       <script>
+    // Ambil parameter license dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const license = urlParams.get('license');
+    if (!license) {
+        document.getElementById('dashboard-container').innerHTML = '<div class="error">Kode lisensi tidak ditemukan. Silakan login kembali.</div>';
+    } else {
+        fetch(`/dashboard?license=${encodeURIComponent(license)}`)
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('dashboard-container').innerHTML = html;
+            })
+            .catch(error => {
+                document.getElementById('dashboard-container').innerHTML = `<div class="error">Gagal memuat dashboard: ${error.message}</div>`;
+            });
+    }
+</script>
     </script>
 </body>
 </html>
