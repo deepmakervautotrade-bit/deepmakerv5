@@ -15,12 +15,111 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.2s ease, border-color 0.2s ease;
         }
         body {
             font-family: 'Inter', sans-serif;
             color: #1e293b;
             line-height: 1.5;
             overflow-x: hidden;
+            background-color: #ffffff;
+        }
+        /* Dark theme variables */
+        body.dark-theme {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        body.dark-theme .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        body.dark-theme .navbar a {
+            color: #e2e8f0;
+        }
+        body.dark-theme .navbar a:hover {
+            color: #fbbf24;
+        }
+        body.dark-theme .btn-outline {
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+        body.dark-theme .btn-outline:hover {
+            background: #fbbf24;
+            color: #0f172a;
+        }
+        body.dark-theme .btn-primary {
+            background: #fbbf24;
+            color: #0f172a;
+        }
+        body.dark-theme .btn-primary:hover {
+            background: #f59e0b;
+        }
+        body.dark-theme .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        body.dark-theme .hero h1 {
+            color: #f1f5f9;
+        }
+        body.dark-theme .hero p {
+            color: #cbd5e1;
+        }
+        body.dark-theme .stat-number {
+            color: #fbbf24;
+        }
+        body.dark-theme .feature-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        body.dark-theme .feature-card h3 {
+            color: #f1f5f9;
+        }
+        body.dark-theme .feature-card p {
+            color: #cbd5e1;
+        }
+        body.dark-theme .pricing-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        body.dark-theme .pricing-card.popular {
+            border-color: #fbbf24;
+        }
+        body.dark-theme .pricing-name {
+            color: #f1f5f9;
+        }
+        body.dark-theme .pricing-price {
+            color: #fbbf24;
+        }
+        body.dark-theme .pricing-features li {
+            color: #cbd5e1;
+        }
+        body.dark-theme .btn-pricing {
+            background: #fbbf24;
+            color: #0f172a;
+        }
+        body.dark-theme .btn-pricing:hover {
+            background: #f59e0b;
+        }
+        body.dark-theme .btn-pricing.outline {
+            background: transparent;
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+        body.dark-theme .btn-pricing.outline:hover {
+            background: #fbbf24;
+            color: #0f172a;
+        }
+        body.dark-theme .cta-section {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+        body.dark-theme .footer {
+            background: #0a0f1a;
+        }
+        body.dark-theme .footer-desc,
+        body.dark-theme .footer-links a {
+            color: #9ca3af;
+        }
+        body.dark-theme .footer-title {
+            color: #f1f5f9;
         }
         /* Navbar */
         .navbar {
@@ -57,6 +156,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        body.dark-theme .logo span {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .nav-menu {
             display: flex;
             gap: 2rem;
@@ -74,6 +178,7 @@
         .nav-buttons {
             display: flex;
             gap: 1rem;
+            align-items: center;
         }
         .btn-outline {
             padding: 0.5rem 1.5rem;
@@ -102,6 +207,20 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(37,99,235,0.2);
         }
+        /* Theme toggle button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #2563eb;
+            margin-left: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        body.dark-theme .theme-toggle {
+            color: #fbbf24;
+        }
         /* Hero */
         .hero {
             padding: 8rem 0 5rem;
@@ -124,6 +243,10 @@
             letter-spacing: 0.5px;
             margin-bottom: 1.5rem;
         }
+        body.dark-theme .hero-badge {
+            background: rgba(251,191,36,0.1);
+            color: #fbbf24;
+        }
         .hero h1 {
             font-size: 3.2rem;
             font-weight: 800;
@@ -132,6 +255,11 @@
         }
         .hero h1 span {
             background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body.dark-theme .hero h1 span {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -166,6 +294,10 @@
             overflow: hidden;
             border: 1px solid #e2e8f0;
         }
+        body.dark-theme .hero-image {
+            background: #1e293b;
+            border-color: #334155;
+        }
         .hero-image img {
             width: 100%;
             height: auto;
@@ -186,16 +318,25 @@
             letter-spacing: 1.5px;
             margin-bottom: 1rem;
         }
+        body.dark-theme .section-subtitle {
+            color: #fbbf24;
+        }
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
             color: #0f172a;
             margin-bottom: 1rem;
         }
+        body.dark-theme .section-title {
+            color: #f1f5f9;
+        }
         .section-desc {
             max-width: 600px;
             margin: 0 auto;
             color: #475569;
+        }
+        body.dark-theme .section-desc {
+            color: #cbd5e1;
         }
         .features-grid {
             display: grid;
@@ -215,6 +356,10 @@
             box-shadow: 0 20px 30px rgba(37,99,235,0.1);
             border-color: #2563eb;
         }
+        body.dark-theme .feature-card:hover {
+            border-color: #fbbf24;
+            box-shadow: 0 20px 30px rgba(251,191,36,0.1);
+        }
         .feature-icon {
             width: 60px;
             height: 60px;
@@ -227,6 +372,10 @@
             color: #2563eb;
             font-size: 1.5rem;
         }
+        body.dark-theme .feature-icon {
+            background: linear-gradient(135deg, #334155, #1e293b);
+            color: #fbbf24;
+        }
         .feature-card h3 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -235,6 +384,24 @@
         .feature-card p {
             color: #475569;
             font-size: 0.95rem;
+        }
+        /* Promo banner */
+        .promo-banner {
+            background: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body.dark-theme .promo-banner {
+            background: #fbbf24;
+            color: #0f172a;
         }
         /* Pricing */
         .pricing-grid {
@@ -257,6 +424,10 @@
             box-shadow: 0 10px 30px rgba(37,99,235,0.1);
             transform: scale(1.05);
         }
+        body.dark-theme .pricing-card.popular {
+            border-color: #fbbf24;
+            box-shadow: 0 10px 30px rgba(251,191,36,0.1);
+        }
         .popular-badge {
             position: absolute;
             top: -12px;
@@ -269,16 +440,29 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
+        body.dark-theme .popular-badge {
+            background: #fbbf24;
+            color: #0f172a;
+        }
         .pricing-name {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
+        }
+        .old-price {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+            margin-right: 0.5rem;
         }
         .pricing-price {
             font-size: 2.5rem;
             font-weight: 800;
             color: #2563eb;
             margin-bottom: 0.5rem;
+        }
+        body.dark-theme .pricing-price {
+            color: #fbbf24;
         }
         .pricing-duration {
             color: #64748b;
@@ -298,9 +482,15 @@
             align-items: center;
             gap: 0.5rem;
         }
+        body.dark-theme .pricing-features li {
+            color: #cbd5e1;
+        }
         .pricing-features i {
             color: #2563eb;
             width: 20px;
+        }
+        body.dark-theme .pricing-features i {
+            color: #fbbf24;
         }
         .pricing-features i.fa-times {
             color: #dc2626;
@@ -323,6 +513,71 @@
             background: transparent;
             border: 1px solid #2563eb;
             color: #2563eb;
+        }
+        body.dark-theme .btn-pricing.outline {
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+        body.dark-theme .btn-pricing.outline:hover {
+            background: #fbbf24;
+            color: #0f172a;
+        }
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .testimonial-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.2s;
+        }
+        body.dark-theme .testimonial-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #2563eb;
+        }
+        body.dark-theme .testimonial-avatar {
+            background: #334155;
+            color: #fbbf24;
+        }
+        .testimonial-name h4 {
+            font-weight: 600;
+        }
+        .testimonial-name p {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        .testimonial-rating {
+            color: #fbbf24;
+            margin-bottom: 0.8rem;
+        }
+        .testimonial-text {
+            color: #475569;
+            font-style: italic;
+        }
+        body.dark-theme .testimonial-text {
+            color: #cbd5e1;
         }
         /* CTA */
         .cta-section {
@@ -465,7 +720,6 @@
                 grid-template-columns: 1fr;
             }
         }
-        /* Tambahan untuk layar sangat kecil (HP) */
         @media (max-width: 480px) {
             .container {
                 padding: 0 1rem;
@@ -527,6 +781,9 @@
             <div class="nav-buttons">
                 <a href="login.html" class="btn-outline">Login</a>
                 <a href="register.html" class="btn-primary">Daftar</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -600,6 +857,7 @@
                 <div class="section-subtitle">HARGA & PAKET</div>
                 <h2 class="section-title">Pilih Paket Sesuai Kebutuhan</h2>
                 <p class="section-desc">Semua paket sudah termasuk lisensi untuk 1 akun MT5. Upgrade kapan saja.</p>
+                <div class="promo-banner">🎉 Promo Spesial – Hanya sampai akhir Maret!</div>
             </div>
             <div class="pricing-grid">
                 <!-- Trial -->
@@ -638,7 +896,9 @@
                 <div class="pricing-card popular">
                     <div class="popular-badge">TERLARIS</div>
                     <div class="pricing-name">Pro</div>
-                    <div class="pricing-price">Rp600.000</div>
+                    <div class="pricing-price">
+                        <span class="old-price">Rp1.100.000</span> Rp600.000
+                    </div>
                     <div class="pricing-duration">90 hari</div>
                     <ul class="pricing-features">
                         <li><i class="fas fa-check"></i> Semua fitur</li>
@@ -654,7 +914,9 @@
                 <!-- VIP -->
                 <div class="pricing-card">
                     <div class="pricing-name">VIP</div>
-                    <div class="pricing-price">Rp1.100.000</div>
+                    <div class="pricing-price">
+                        <span class="old-price">Rp3.200.000</span> Rp1.100.000
+                    </div>
                     <div class="pricing-duration">365 hari</div>
                     <ul class="pricing-features">
                         <li><i class="fas fa-check"></i> Semua fitur</li>
@@ -666,6 +928,83 @@
                         <li><i class="fas fa-check"></i> Remote Control</li>
                     </ul>
                     <a href="register.html?package=vip" class="btn-pricing">Beli Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">TESTIMONI</div>
+                <h2 class="section-title">Apa Kata Mereka?</h2>
+                <p class="section-desc">Pengalaman nyata dari para trader yang sudah menggunakan Deepmaker V5.5.</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimoni 1 (Indonesia) -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div class="testimonial-name">
+                            <h4>Budi Santoso</h4>
+                            <p>Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-text">
+                        "Gua udah pake berbagai EA, tapi ini paling oke! Market structure-nya akurat banget, profit konsisten. Supportnya juga cepat ngebantu."
+                    </div>
+                </div>
+                <!-- Testimoni 2 (USA) -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div class="testimonial-name">
+                            <h4>John Smith</h4>
+                            <p>New York, USA</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-text">
+                        "I've been using Deepmaker for 3 months on my gold account. The AI really understands market structure. Great risk management!"
+                    </div>
+                </div>
+                <!-- Testimoni 3 (Indonesia) -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div class="testimonial-name">
+                            <h4>Sari Wijaya</h4>
+                            <p>Bandung, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="testimonial-text">
+                        "Remote control-nya memudahkan banget buat pantau trading dari mana aja. Apalagi pas lagi di luar kota. Recommended!"
+                    </div>
+                </div>
+                <!-- Testimoni 4 (Spain) -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div class="testimonial-name">
+                            <h4>Maria Garcia</h4>
+                            <p>Madrid, Spain</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-text">
+                        "El mejor EA que he probado para XAUUSD. La estructura de mercado es increíble y el soporte es muy atento."
+                    </div>
                 </div>
             </div>
         </div>
@@ -719,6 +1058,7 @@
             </div>
         </div>
     </footer>
+
     <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -728,7 +1068,32 @@
                     behavior: 'smooth'
                 });
             });
-        });        
-    </script>        
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Check local storage for theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-theme');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            if (body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>
