@@ -42,6 +42,9 @@
             background: #e2e8f0; color: #475569; padding: 4px 12px; border-radius: 40px;
             font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3px;
         }
+        .header-actions {
+            display: flex; align-items: center; gap: 16px;
+        }
         .license-badge {
             background: #0f172a; color: white; padding: 12px 24px; border-radius: 60px;
             display: flex; align-items: center; gap: 12px; font-size: 0.9rem;
@@ -51,6 +54,34 @@
         .license-code {
             font-family: 'SF Mono', 'Fira Code', monospace; letter-spacing: 1px;
             background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 40px;
+        }
+        .logout-btn {
+            background: #ef4444; color: white; border: none; border-radius: 40px;
+            padding: 12px 24px; font-size: 0.9rem; font-weight: 600;
+            display: flex; align-items: center; gap: 8px; cursor: pointer;
+            transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(239,68,68,0.2);
+        }
+        .logout-btn:hover {
+            background: #dc2626; transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(239,68,68,0.3);
+        }
+        .logout-btn i { font-size: 1rem; }
+        .logout-btn.loading {
+            pointer-events: none; opacity: 0.7;
+        }
+        .logout-btn .spinner {
+            display: none; width: 18px; height: 18px;
+            border: 2px solid white; border-top-color: transparent;
+            border-radius: 50%; animation: spin 0.8s linear infinite;
+        }
+        .logout-btn.loading .spinner {
+            display: inline-block;
+        }
+        .logout-btn.loading .btn-text {
+            display: none;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         .stats-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;
@@ -131,6 +162,7 @@
         }
         @media (max-width: 768px) {
             .header-card { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .header-actions { width: 100%; justify-content: space-between; }
             .stats-grid { grid-template-columns: 1fr; }
             .account-header { flex-direction: column; align-items: flex-start; gap: 12px; }
         }
@@ -142,6 +174,19 @@
             <i class="fas fa-spinner fa-spin"></i> Memuat data dashboard...
         </div>
     </div>
+
+    <!-- Live Chat Tawk.to -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6986e98076ad761c40db5824/1jgrg082c';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
 
     <script>
         // ========== KONFIGURASI ==========
@@ -249,7 +294,14 @@
                                 <p style="color: #64748b; margin-top: 4px;"><i class="fas fa-shield-alt" style="color: #2563eb;"></i> Enterprise License Management</p>
                             </div>
                         </div>
-                        <div class="license-badge"><i class="fas fa-key"></i><span class="license-code">${licenseCode}</span></div>
+                        <div class="header-actions">
+                            <div class="license-badge"><i class="fas fa-key"></i><span class="license-code">${licenseCode}</span></div>
+                            <button class="logout-btn" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span class="btn-text">Logout</span>
+                                <span class="spinner"></span>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Stats Cards -->
@@ -330,6 +382,18 @@
                 console.error('❌ Toggle error:', error);
                 alert('Error: ' + error.message);
             });
+        };
+
+        // ========== FUNGSI LOGOUT ==========
+        window.logout = function() {
+            const logoutBtn = document.querySelector('.logout-btn');
+            if (logoutBtn) {
+                logoutBtn.classList.add('loading');
+            }
+            // Simulasi loading 1 detik lalu redirect ke home (index.html)
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
         };
     </script>
 </body>
